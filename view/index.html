@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <!-- Script Carausel -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Recreate Tokopedia</title>
 </head>
 
 <body>
@@ -75,8 +76,8 @@
         </a>
     </div>
 
-    <div class="row content">
-        <div class="row" style="margin:10px">
+    <div class="row content" style="padding: 12px; border: groove;">
+        <div class="row" style="margin-right:10px">
             <div class="col-sm-6 " style="margin: 5px;">
                 <h3 style="padding-bottom: 15px;">Kategori Pilihan</h3>
                 <div class="row">
@@ -94,43 +95,65 @@
                     </div>
                 </div>
             </div>
+            <div style="padding: 5px;">
+                <h3 style="padding-bottom: 20px;"><span style="font-size: 16px; color: black;">Top Up dan Tagihan</span></h3>
+                <div class="col-sm-5" style="margin: 5px;">
 
-            <div class="col-sm-5" style="margin: 5px;">
-                <h3 style="padding-bottom: 15px;">Top Up dan Tagihan</h3>
-                <div class="row" style="text-align: center;">
-                    <div class="col-sm-3 content-nav">
-                        Pulsa
+                    <div class="row" style="text-align: center; border: groove;">
+                        <div class="col-sm-3 content_01" style="margin-bottom: 5px;">
+                            <p class="indicator" id="but1" onclick="changeClick(1)"><span>Pulsa</span></p>
+                        </div>
+                        <div class="col-sm-3 content_01" style="margin-bottom: 5px;">
+                            <p class="indicator" id="but2" onclick="changeClick(2)"> <span>Paket</span>
+                        </div>
+                        <div class="col-sm-3 content_01" style="margin-bottom: 5px;">
+                            <p class="indicator" id="but3" onclick="changeClick(3)"> <span>Listrik</span>
+                        </div>
+                        <div class="col-sm-3 content_01" style="margin-bottom: 5px;">
+                            <p class="indicator" id="but4" onclick="changeClick(4)"> <span>PLN</span>
+                        </div>
+                        <div class="indicator"></div>
                     </div>
-                    <div class="col-sm-3 content-nav">
-                        Paket
-                    </div>
-                    <div class="col-sm-3 content-nav">
-                        Listrik
-                    </div>
-                    <div class="col-sm-3 content-nav">
-                        PLN
-                    </div>
-                </div>
-                <div class="row" style="flex: 1 1 auto;">
-                    <div class="col-sm-5">
-                        <label for=" ">
-                            Nomor Telpon
-                        </label>
-                        <input type="text" class="pulsa" placeholder="0812345678 ">
-                    </div>
-                    <div class="col-sm-5">
-                        <label for=" ">
-                            Nominal
-                        </label>
-                        <input type="text" class="pulsa" disabled>
-                    </div>
-                    <div class="col-sm-2" style="margin-top: 25px;">
-                        <button class="medium-header-fill-grey">Beli</button>
+                    <div class="row" style="flex: 1 1 auto; padding: 10px;">
+                        <div class="col-sm-5">
+                            <label for="">
+                                Nomor Telpon
+                            </label>
+                            <input type="number" class="pulsa" placeholder="081234567890" id="notlp">
+                            <input type="number" class="paket" placeholder="081234567890" id="notlpPaket" hidden>
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="">
+                                Nominal
+                            </label>
+                            <!--input type="text" class="pulsa" disabled-->
+                            <select id="nominal" class="pulsa" disabled>
+                                <option value="1000">Rp. 1.000</option>
+                                <option value="3000">Rp. 3.000</option>
+                                <option value="5000">Rp. 5.000</option>
+                                <option value="10000">Rp. 10.000</option>
+                                <option value="20000">Rp. 20.000</option>
+                                <option value="25000">Rp. 25.000</option>
+                                <option value="50000">Rp. 50.000</option>
+                                <option value="100000">Rp. 100.000</option>
+                            </select>
+                            <select id="paketan" class="paket" disabled hidden>
+                                <option value="30500">Internet 10 GB - Rp. 30.500</option>
+                                <option value="43000">Internet 15 GB - Rp. 43.000</option>
+                                <option value="20000">Internet Combo Unlimited (Kuota Malam) - Rp. 20.000</option>
+                                <option value="70000">Internet Combo Unlimited - Rp. 70.000</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2" style="margin-top: 25px;">
+                            <button class="medium-header-fill-grey" disabled id="buttonGrey">Beli</button>
+                            <button class="medium-header-fill-green" hidden id="buttonGreen">Beli</button>
+                            <button class="medium-header-fill-green" hidden id="buttonGreenPaket">Beli</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container" style="margin: 10px; white-space: nowrap;">
+        <div class="container" style="margin-left: 6px; white-space: nowrap;">
             <div class="row">
                 <div class="col-lg-1" style="margin-right: 24px; padding: 6px 12px; border: 1px;">
                     <button class="btn" style="background-color: rgb(229, 231, 233);">
@@ -159,3 +182,114 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function() {
+        $('#notlp').change(function() {
+            if ($('#notlp').val() > 0 && $('#notlp').val().length == 12) {
+                $('#nominal').prop('disabled', false);
+                console.log($('#notlp').val());
+            } else {
+                $('#nominal').prop('disabled', true);
+                $('#buttonGrey').show();
+                $('#buttonGreen').hide();
+                console.clear();
+            }
+        });
+
+        $('#notlpPaket').change(function() {
+            if ($('#notlpPaket').val() > 0 && $('#notlpPaket').val().length == 12) {
+                $('#paketan').prop('disabled', false);
+                console.log($('#notlpPaket').val());
+            } else {
+                $('#paketan').prop('disabled', true);
+                $('#buttonGrey').show();
+                $('#buttonGreenPaket').hide();
+                console.clear();
+            }
+        });
+
+        $('#nominal').change(function() {
+            $('#buttonGrey').hide();
+            $('#buttonGreen').show();
+            $('#buttonGreenPaket').hide();
+        });
+
+        $('#paketan').change(function() {
+            $('#buttonGrey').hide();
+            $('#buttonGreen').hide()
+            $('#buttonGreenPaket').show();
+        });
+
+        $('#buttonGreen').click(function() {
+            var value = 0;
+            var nomval = parseInt($('#nominal').val());
+            if (nomval <= 10000) {
+                value = nomval + 3000;
+            } else {
+                value = nomval + 2000;
+            }
+            var confirmAction = confirm("Pembelian pulsa sebesar " + nomval + " ke nomor " + $('#notlp').val());
+            if (confirmAction) {
+                alert("Total harga pulsa Rp. " + value + ",- ke nomor " + $('#notlp').val() + " sedang di proses. Terima kasih");
+            } else {
+                close();
+            }
+        });
+
+        $('#buttonGreenPaket').click(function() {
+            var nomval = parseInt($('#paketan').val());
+            var selected = document.getElementById('paketan');
+            var nameval = selected.options[selected.selectedIndex].text;
+            var confirmAct = confirm("Pembelian paket data " + nameval + " ke nomor " + $('#notlpPaket').val());
+            if (confirmAct) {
+                alert("Total harga paket data Rp. " + nomval + ",- ke nomor " + $('#notlpPaket').val() +
+                    " sedang di proses. Terima kasih");
+            } else {
+                close();
+            }
+        });
+        /*
+        $('#but1').click(function() {
+            $("#but1").change("style", "color: green");
+            for (var i = 1; i <= 4; i++) {
+                if ($("but" + i).attr("style", "color") == "green") {
+                    continue;
+                } else {
+                    $("but" + 1).css("style", "color: gray");
+                }
+            }
+        });
+        */
+    });
+
+    function changeClick(nums) {
+        var a = nums;
+
+        for (var i = 1; i <= 4; i++) {
+            if (a == i) {
+                document.getElementById('but' + a).style.color = "green";
+            } else {
+                document.getElementById('but' + i).style.color = "grey";
+            }
+        }
+        if (a == 1) {
+            $('#notlp').show();
+            $('#notlpPaket').hide();
+            $('#paketan').hide();
+            $('#nominal').show();
+            $('#buttonGreenPaket').hide();
+            $('#buttonGrey').show();
+            $('#paketan').prop('disabled', true);
+            document.getElementById('notlpPaket').value = '';
+        } else if (a == 2) {
+            $('#notlp').hide();
+            $('#notlpPaket').show();
+            $('#paketan').show();
+            $('#nominal').hide();
+            $('#buttonGreen').hide();
+            $('#buttonGrey').show();
+            $('#nominal').prop('disabled', true);
+            document.getElementById('notlp').value = '';
+        }
+    }
+</script>
